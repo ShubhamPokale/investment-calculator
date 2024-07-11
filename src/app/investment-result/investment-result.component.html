@@ -1,0 +1,43 @@
+<p>
+<!-- fallback text need to show this conditionally -->
+ <!-- <p *ngIf=""></p> -->
+ @if(!results){  <p class="center"> Please enter some value and press "Calculate" </p>}
+ @else {
+
+    <table>
+
+        <thead>
+        
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest (year)</th>
+            <th>Total Interest</th>
+            <th>Investment Capital</th>
+        </thead>
+        
+        <tbody>
+            <!-- dynamic code  table rows depends on the duration -->
+             <!-- looping code -->
+             @for (result of results; track result.year) {
+
+                <!-- template code executed for each result of the results array -->
+                 <tr>
+                 <td>{{result.year}}</td>
+                 <td>{{result.valueEndOfYear |currency}}</td>
+                 <td>{{result.interest  | currency}}</td>
+                 <td>{{result.totalInterest  | currency}}</td>
+                 <td>{{result.totalAmountInvested  | currency}}</td>
+                </tr>
+             }
+        </tbody>
+        
+        
+        </table>
+
+ }
+  
+
+</p>
+
+
+
